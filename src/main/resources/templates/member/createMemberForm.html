@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }s
+    </style>
+</head>
+    <body>
+        <form th:action="@{/members/create}" th:object="${member}" th:method="post">
+            <div>
+                <span>이메일 : </span><input th:field="*{email}"/>
+                <div class="field-error" th:errors="*{email}"/>
+            </div>
+            <div>
+                <span>이름 : </span><input th:field="*{name}"/>
+                <div class="field-error" th:errors="*{name}"/>
+            </div>
+            <div>
+                <span>나이 : </span><input th:field="*{age}"/>
+                <div class="field-error" th:errors="*{age}"/>
+            </div>
+            <button type="submit">등록</button>
+        </form>
+    </body>
+</html>
